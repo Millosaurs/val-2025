@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import type React from "react" // Import React
 
 export const metadata: Metadata = {
-  title: "Pirate Card Adventure",
-  description: "Explore the world of pirates through interactive cards",
+  title: "Darlingg",
+  description: "Kya bolti ? Dogi mera sath ?",
 }
 
 export default function RootLayout({

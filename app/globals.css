@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Quicksand:wght@300..700&display=swap');
 
 
 @tailwind base;
@@ -12,8 +13,20 @@
 .font-cursive{
   font-family: "Cedarville Cursive", cursive;
 }
+.font-quick{
+  font-family: "Quicksand", sans-serif;
+}
 .scroll-hidden {
   overflow: hidden;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge, and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 body {

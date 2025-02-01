@@ -1,6 +1,10 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import Loader from "../components/Loader";
 
 interface IntroductionCardProps {
   imageUrl: string;
@@ -30,9 +34,9 @@ function IntroductionCard({ imageUrl, heading, text, className }: IntroductionCa
 
         {/* Content Section */}
         <div className="md:w-1/2 bg-[#EEDEC5] rounded-[40px] flex flex-col h-full p-6">
-          <h2 className="text-4xl font-extrabold mb-4 font-cursive text-[#3D3833] leading-tight">{heading}</h2>
-          <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar">
-            <p className="text-[#5D5545] font-cursive text-xl leading-relaxed pb-80 scroll-hidden">{text}</p>
+          <h2 className="text-4xl font-extrabold mb-4 font-quick text-[#3D3833] leading-tight">{heading}</h2>
+          <div className="flex-grow overflow-y-auto pr-4 scrollbar-hide">
+            <p className="text-[#5D5545] font-quick text-xl leading-relaxed pb-80 ">{text}</p>
           </div>
         </div>
       </div>
@@ -41,8 +45,19 @@ function IntroductionCard({ imageUrl, heading, text, className }: IntroductionCa
 }
 
 export default function HomePage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a loading delay of 5 seconds
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 5000); // 5 seconds delay
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []);
+
   const introductionData = {
-    imageUrl: "/placeholder.svg?height=400&width=400&text=You+and+Me",
+    imageUrl: "https://media1.tenor.com/m/1jI7RJDmGvwAAAAC/peach-and-goma-love-peach-cat-cute.gif",
     heading: "A Little About Me",
     text: `Hello there, my love. I wanted to take a moment to share a little about myself and what’s been on my mind lately. I’m someone who believes in the magic of connections, the kind that feels like the stars aligned just for us. I’ve always been drawn to your kindness, your laughter, and the way you make the world feel brighter just by being in it.
 
@@ -53,8 +68,22 @@ export default function HomePage() {
     So, when the time feels right, I hope you’ll let me share something important with you. Until then, know that you’re always in my thoughts, and I’m looking forward to the moments we’ll create together.`,
   };
 
+  if (isLoading) {
+    return (
+      <div className="m-6 min-h-screen bg-[#D6C4A5] flex flex-col items-center justify-center">
+        {/* Circular Border Around Loader */}
+        <div className="border-8 border-[#EEDEC5] rounded-full animate-spin-slow bg-[#f7e4c7]">
+          <Loader />
+        </div>
+        <p className="mt-8 text-2xl font-quick font-bold text-[#3D3833] border-4 border-[#b4a996] rounded-full p-3 bg-[#f7e4c7]">
+          Loading ya baka ona💕
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8 bg-[#D6C4A5]">
       <div className="max-w-4xl mx-auto text-center scroll-hidden">
         <IntroductionCard
           imageUrl={introductionData.imageUrl}
@@ -65,7 +94,7 @@ export default function HomePage() {
         <div className="mt-8 text-center">
           <Link
             href="/main"
-            className="inline-block font-bold px-8 py-3 bg-[#EEDEC5] text-[#3D3833] font-cursive text-xl rounded-[30px] shadow-lg hover:bg-[#D4C4A5] transition-all duration-300"
+            className="inline-block font-bold px-8 py-3 bg-[#EEDEC5] text-[#3D3833] font-quick text-xl rounded-[30px] shadow-lg hover:bg-[#D4C4A5] transition-all duration-300"
           >
             Continue the Journey
           </Link>

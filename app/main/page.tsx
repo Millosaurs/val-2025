@@ -7,22 +7,22 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const romanticData = [
   {
-    imageUrl: "/placeholder.svg?height=400&width=400&text=Our+Love+Map",
+    imageUrl: "https://media1.tenor.com/m/KWj2k18vGHMAAAAd/peach-and-goma.gif",
     heading: "The Map to My Heart",
     text: "Like an ancient treasure map, my heart leads to you. X marks the spot where love awaits, and I hope you'll join me on this adventure to uncover a lifetime of happiness together. Will you be my Valentine?",
   },
   {
-    imageUrl: "/placeholder.svg?height=400&width=400&text=Love+Boat",
+    imageUrl: "https://media1.tenor.com/m/qwwnV8nTXi8AAAAC/goma-peach.gif",
     heading: "The Ship of Us",
     text: "Just like a ship sailing through the vast ocean, I want us to navigate life's waves together. With you by my side, every journey will feel like a dream. Let’s set sail on this beautiful voyage—will you be my Valentine?",
   },
   {
-    imageUrl: "/placeholder.svg?height=400&width=400&text=Our+Story",
+    imageUrl: "https://media.tenor.com/ebxdmZtOvTwAAAAi/peach-goma.gif",
     heading: "Our Love Story",
     text: "Every great story has a beginning, and ours starts with you. I want to fill the pages of our lives with laughter, love, and unforgettable moments. Let’s write this story together—will you be my Valentine?",
   },
   {
-    imageUrl: "/placeholder.svg?height=400&width=400&text=You+and+Me",
+    imageUrl: "https://media.tenor.com/zH6uMb7IYCYAAAAi/peachandgoma.gif",
     heading: "My Forever Valentine",
     text: "You are the treasure I’ve been searching for all my life. Your smile is my compass, and your love is my guiding star. I can’t imagine a future without you. Will you make me the happiest person and be my Valentine?",
   },

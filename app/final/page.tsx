@@ -1,20 +1,38 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Confetti from "react-confetti";
-import { useWindowSize } from "react-use"; // Correct import for useWindowSize
 
 export default function FinalPage() {
   const [response, setResponse] = useState<string | null>(null);
   const [inputValue, setInputValue] = useState("");
   const [showConfetti, setShowConfetti] = useState(false);
-  const { width, height } = useWindowSize(); // Get window dimensions for confetti
+  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
   // List of positive responses
   const positiveResponses = ["ok", "sari", "aythu", "nodana", "mmmm", "yes", "yo", "ya ya", "sure"];
 
   // List of negative responses
   const negativeResponses = ["no", "nope", "never", "no ya", "rejected", "get lost", "better you die", "illa", "beda", "bekagila", "not needed"];
+
+  // Get window dimensions
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    // Set initial window size
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleConfirm = () => {
     if (inputValue.trim()) {
@@ -41,7 +59,7 @@ export default function FinalPage() {
 
   return (
     <div className="min-h-screen bg-[#D6C4A5] flex items-center justify-center font-quick p-8">
-      {showConfetti && <Confetti width={width} height={height} />} {/* Confetti component */}
+      {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} />} {/* Confetti component */}
       {response === null ? (
         <div className="flex flex-col md:flex-row h-full relative">
           {/* Image Section */}

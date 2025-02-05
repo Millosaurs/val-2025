@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter } from "next/navigation" // Import useRouter
-import PirateCard from "../../components/PirateCard"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
+import PirateCard from "../../components/PirateCard";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const romanticData = [
   {
@@ -29,45 +30,57 @@ const romanticData = [
 ];
 
 export default function Home() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const router = useRouter() // Initialize the router
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const router = useRouter();
 
   const handleNext = () => {
     if (currentIndex === romanticData.length - 1) {
-      // If it's the last card, navigate to /final
-      router.push("/final")
+      router.push("/final");
     } else {
-      // Otherwise, go to the next card
-      setCurrentIndex((prevIndex) => prevIndex + 1)
+      setDirection(1);
+      setCurrentIndex((prevIndex) => prevIndex + 1);
     }
-  }
+  };
 
   const handlePrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + romanticData.length) % romanticData.length)
-  }
+    setDirection(-1);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + romanticData.length) % romanticData.length);
+  };
 
   return (
     <div className="min-h-screen bg-[#D6C4A5] p-8 flex items-center justify-center">
       <div className="relative w-full max-w-4xl">
-        <PirateCard
-          {...romanticData[currentIndex]}
-          className="shadow-xl hover:shadow-2xl transition-shadow duration-300"
-        />
-        <button
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            initial={{ opacity: 0, x: direction * 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -direction * 50 }}
+            transition={{ duration: 0.5 }}
+          >
+            <PirateCard {...romanticData[currentIndex]} />
+          </motion.div>
+        </AnimatePresence>
+
+        <motion.button
           className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 bg-[#8B7E66] text-[#F9F5E9] hover:bg-[#5D5545] rounded-full p-4 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3D3833] focus:ring-offset-2"
           onClick={handlePrevious}
           aria-label="Previous card"
+          whileTap={{ scale: 0.9 }}
         >
           <ChevronLeft size={32} />
-        </button>
-        <button
+        </motion.button>
+
+        <motion.button
           className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 bg-[#8B7E66] text-[#F9F5E9] hover:bg-[#5D5545] rounded-full p-4 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3D3833] focus:ring-offset-2"
           onClick={handleNext}
           aria-label="Next card"
+          whileTap={{ scale: 0.9 }}
         >
           <ChevronRight size={32} />
-        </button>
+        </motion.button>
       </div>
     </div>
-  )
+  );
 }

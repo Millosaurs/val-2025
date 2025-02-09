@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Confetti from "react-confetti";
 import { useSpring, animated } from "react-spring";
+import { Separator } from "@/components/ui/separator"
+
 
 export default function FinalPage() {
   const [response, setResponse] = useState<string | null>(null);
@@ -36,6 +38,22 @@ export default function FinalPage() {
     }
   };
 
+  const handleDownloadResponse = () => {
+    if (response) {
+      const jsonResponse = JSON.stringify({ response }, null, 2);
+      const blob = new Blob([jsonResponse], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "valentine_response.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  };
+
   const textSpring = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -44,7 +62,7 @@ export default function FinalPage() {
 
   return (
     <div className="min-h-screen bg-[#D6C4A5] flex items-center justify-center font-quick p-8">
-      {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={300} recycle={false} />} 
+      {showConfetti && <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={300} recycle={false} />}
       {response === null ? (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
@@ -68,16 +86,17 @@ export default function FinalPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h1 className="text-4xl font-bold text-[#3D3833] mb-4">Will You Be My Valentine?</h1>
+            <h1 className="text-4xl font-bold text-[#3D3833] mb-4">Will You Be My Valentine dear Baka ona ?</h1>
             <p className="text-[#5D5545] mb-8">
-              You mean the world to me, and I can't imagine spending this special day with anyone else. Will you make me the happiest person and be my Valentine?
+              You know I have no intension of making you my girlfriend its just i cant say you are my wife although you are to me. Until i prove it will you be mine ????
             </p>
+            <p>Tell me how you feel abt this proposal, and me I will be waiting for your responce 😊</p>
             <animated.textarea
               style={textSpring}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
-              placeholder="Type your response here..."
-              className="w-full p-4 mb-4 bg-[#EEDEC5] rounded-2xl text-[#3D3833] placeholder-[#5D5545] focus:outline-none focus:ring-2 focus:ring-[#8B7E66]"
+              placeholder="Start with your answer with        (yes or no...)"
+              className="w-full p-4 mt-4 mb-4 bg-[#EEDEC5] rounded-2xl text-[#3D3833] placeholder-[#5D5545] focus:outline-none focus:ring-2 focus:ring-[#8B7E66] text-center"
               rows={4}
             />
             <motion.button
@@ -98,30 +117,38 @@ export default function FinalPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-4xl font-bold text-[#3D3833] mb-4">Darling...</h1>
+          <h1 className="text-4xl font-bold text-[#3D3833] mb-4"></h1>
           <motion.div
             className="bg-[#EEDEC5] p-6 rounded-2xl text-[#3D3833] mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7 }}
           >
-            <p className="text-xl font-semibold mb-2">Mai kya bola?</p>
-            <p className="text-[#5D5545] mb-4">Banogi meri valantine mere har janam mai ?</p>
-            <p className="text-xl font-semibold mb-2">Tu Kya boli?</p>
-            <p className="text-[#5D5545]">{response}</p>
+            <p className="text-xl font-semibold mb-2">Banogi meri valantine mere har janam mai ?</p>
+            <p className="text-xl font-semibold mb-2">{response}</p>
+            <p className="text-[#5D5545]"></p>
           </motion.div>
           <motion.p
-            className="text-2xl font-bold text-[#3D3833]"
+            className="text-2xl font-bold text-[#3D3833] mb-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
             {positiveResponses.some((word) => response.toLowerCase().includes(word))
-              ? "LESSS GOO HEHEHEHE 😁"
+              ? "Darling 😁"
               : negativeResponses.some((word) => response.toLowerCase().includes(word))
               ? "Ok sed."
-              : "Mmmm... I see."}
+              : "I see, Isee"}
           </motion.p>
+          <motion.button
+            onClick={handleDownloadResponse}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            className="bg-[#8B7E66] text-[#F9F5E9] hover:bg-[#5D5545] rounded-full px-8 py-3 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[#3D3833] focus:ring-offset-2"
+          >
+            Press to download.
+            Send it to me :)
+          </motion.button>
         </motion.div>
       )}
     </div>

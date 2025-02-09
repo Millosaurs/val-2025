@@ -9,23 +9,23 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const romanticData = [
   {
     imageUrl: "https://media1.tenor.com/m/KWj2k18vGHMAAAAd/peach-and-goma.gif",
-    heading: "The Map to My Heart",
-    text: "Like an ancient treasure map, my heart leads to you. X marks the spot where love awaits, and I hope you'll join me on this adventure to uncover a lifetime of happiness together. Will you be my Valentine?",
+    heading: "Darling...",
+    text: "I liked you the momnet i saw you, liked you more as i talked with you, as liking you more as i spend time with you. I dont know how i should explain but i am sure that your are the missing piece in me. I want to show you this when we meet but dont know what will happen that day.",
   },
   {
     imageUrl: "https://media1.tenor.com/m/qwwnV8nTXi8AAAAC/goma-peach.gif",
-    heading: "The Ship of Us",
-    text: "Just like a ship sailing through the vast ocean, I want us to navigate life's waves together. With you by my side, every journey will feel like a dream. Let’s set sail on this beautiful voyage—will you be my Valentine?",
+    heading: "So.. Jaannu",
+    text: "I want to never stop torchering, pampering you. The amount of satisfaction I get by seeing your face while u mad is so NOICE. You look so cute full red kan full chiku chiku ``bekagila hog nin sorry 😒``. Heng heli maja tako beku adre end ali nan mele rvg takolodu adru i will take risk forever.",
   },
   {
     imageUrl: "https://media.tenor.com/ebxdmZtOvTwAAAAi/peach-goma.gif",
-    heading: "Our Love Story",
-    text: "Every great story has a beginning, and ours starts with you. I want to fill the pages of our lives with laughter, love, and unforgettable moments. Let’s write this story together—will you be my Valentine?",
+    heading: "Just starting ya 😏",
+    text: "Mugili clg firstu aga kododu kata aga irodu maja. Sigo munche yella full plan hage hige antha bandu 2hrs ali 1&1/2 hrs just sit and talk end 1/2hr ali nidyodu romance torcher yella amle feel nange chi agle ila nan torcher madake bre romance madko kuthko bite antha. Pu mugid mele full plan hako bartini no wasting time.",
   },
   {
     imageUrl: "https://media.tenor.com/zH6uMb7IYCYAAAAi/peachandgoma.gif",
-    heading: "My Forever Valentine",
-    text: "You are the treasure I’ve been searching for all my life. Your smile is my compass, and your love is my guiding star. I can’t imagine a future without you. Will you make me the happiest person and be my Valentine?",
+    heading: "Back to main topic...",
+    text: "Me want you to be my valantine this year, next year, and till idk lost count. So I have you myself and only me, me and me only no sharing stuff avela agala. My dear Kusumitha tell me are you willing to be my valantine so I turn that (valantine -> wife) in future ?",
   },
 ];
 

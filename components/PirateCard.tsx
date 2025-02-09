@@ -54,8 +54,8 @@ export default function PirateCard({ imageUrl, heading, text, className }: Pirat
               className="md:w-1/2 bg-[#EEDEC5] rounded-[40px] flex flex-col h-full p-6"
             >
               <h2 className="text-3xl font-bold mb-4 font-quick text-[#3D3833] leading-tight text-center">{heading}</h2>
-              <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar">
-                <p className="text-[#5D5545] font-quick text-xl leading-relaxed pb-80 text-center">{text}</p>
+              <div className="flex-grow overflow-y-auto pr-4 custom-scrollbar scroll-hidden">
+                <p className="text-[#5D5545] font-quick text-xl leading-relaxed pb-80 text-center scroll-hidden">{text}</p>
               </div>
             </motion.div>
           </div>

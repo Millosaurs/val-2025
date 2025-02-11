@@ -10,7 +10,7 @@ const romanticData = [
   {
     imageUrl: "https://media1.tenor.com/m/KWj2k18vGHMAAAAd/peach-and-goma.gif",
     heading: "Darling...",
-    text: "I liked you the momnet i saw you, liked you more as i talked with you, as liking you more as i spend time with you. I dont know how i should explain but i am sure that your are the missing piece in me. I want to show you this when we meet but dont know what will happen that day.",
+    text: "So,.. As to begin I liked you the momnet i saw you, liked you more as i talked with you, as liking you more as i spend time with you. I dont know how i should explain but i am sure that your are the missing piece in me. I want to show you this when we meet but dont know what will happen that day.",
   },
   {
     imageUrl: "https://media1.tenor.com/m/qwwnV8nTXi8AAAAC/goma-peach.gif",

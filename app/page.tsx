@@ -65,13 +65,7 @@ export default function HomePage() {
   const introductionData = {
     imageUrl: "https://media1.tenor.com/m/1jI7RJDmGvwAAAAC/peach-and-goma-love-peach-cat-cute.gif",
     heading: "A Little About Me",
-    text: `Hello there, my love. I wanted to take a moment to share a little about myself and what’s been on my mind lately. I’m someone who believes in the magic of connections, the kind that feels like the stars aligned just for us. I’ve always been drawn to your kindness, your laughter, and the way you make the world feel brighter just by being in it.
-
-    Lately, I’ve been thinking about how special it is to find someone who feels like home. Someone who makes every moment feel like an adventure, even in the simplest of times. You’ve been that person for me, and I can’t help but feel grateful for the way you’ve touched my life.
-
-    There’s something I’ve been wanting to ask you, something that’s been on my heart for a while now. But before I do, I wanted to take this moment to remind you how much you mean to me. You’re not just a part of my life—you’re the part that makes everything else make sense.
-
-    So, when the time feels right, I hope you’ll let me share something important with you. Until then, know that you’re always in my thoughts, and I’m looking forward to the moments we’ll create together.`,
+    text: `Me ? A avg dude who intrsted in nothin, well may be a little computers and tech cuz they are cool and hard to figure out. Ain't no topper but still like to be in leaderboard. Dont want much attention but when I do I want it full. That's it I have to say for myself 😊. I am making this only if the plan was cancled and something like exam stuff came... This will be sent automaticaly on 12:00AM, 14-02-2025.`,
   };
 
   if (isLoading) {
